@@ -46,7 +46,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Dashbaord',icon:'home', component: 'Dashboard' },
+      //{ title: 'Dashbaord',icon:'home', component: 'Dashboard' },
       { title: 'Profile',icon:'person', component: 'Profile' }
     ];
   }
@@ -72,7 +72,7 @@ export class MyApp {
       if(!auth)
         this.rootPage = 'UserLogin';
       else
-        this.rootPage = 'Dashboard';
+        this.rootPage = 'Profile';
     });
   }
 

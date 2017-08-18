@@ -40,11 +40,11 @@ export class UserProfileProvider {
 	}
 
 	// fonction de mise à jour de la date de naissance
-	/*updateDOB(birthDate: string): firebase.Promise<any> {
+	updateDOB(birthDate: string): firebase.Promise<any> {
 	  return this.userProfile.update({
 	    birthDate: birthDate,
 	  });
-	}*/
+	}
 
 	// fonction de mise à jour de l'email
 	updateEmail(newEmail: string, password: string): firebase.Promise<any> {

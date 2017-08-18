@@ -18,7 +18,7 @@ import { AuthProvider } from '../../providers/auth';
 export class Profile {
 
   public userProfile: any = null;
-  //public birthDate: string;
+  public birthDate: string;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
   public profileProvider: UserProfileProvider, public authProvider: AuthProvider){}
@@ -30,13 +30,13 @@ export class Profile {
   ionViewDidEnter() {
 	  this.profileProvider.getUserProfile().on('value', userProfileSnapshot => {
 	    this.userProfile = userProfileSnapshot.val();
-	    //this.birthDate = userProfileSnapshot.val().birthDate;
+	    this.birthDate = userProfileSnapshot.val().birthDate;
 	  });
 	}
 
 	logOut(){
 	  this.authProvider.logoutUser().then(() => {
-	    this.navCtrl.setRoot('login');
+	    this.navCtrl.setRoot('UserLogin');
 	  });
 	}
 
@@ -75,9 +75,9 @@ export class Profile {
 	  alert.present();
 	}
 
-	/*updateDOB(birthDate){
+	updateDOB(birthDate){
 	  this.profileProvider.updateDOB(birthDate);
-	}*/
+	}
 
 	updateEmail(){
 	  let alert = this.alertCtrl.create({

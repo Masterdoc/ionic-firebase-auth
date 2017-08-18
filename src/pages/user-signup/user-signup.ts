@@ -18,8 +18,8 @@ import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';
 export class UserSignup {
 
   signupData = {
-    firstName: '',
-    lastName: '',
+    //firstName: '',
+    //lastName: '',
     //birthDate: '',
     email: '',
     password: '',
