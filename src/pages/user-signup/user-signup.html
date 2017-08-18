@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-navbar  hideBackButton="true">
+    <ion-buttons end>
+     <!-- <button ion-button icon-right color="light" (click)="dashboardPage()">SKIP<ion-icon name="ios-arrow-forward"></ion-icon></button> -->
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col><button ion-button block class="facebookButton" (click)="facebookLogin()"> Facebook</button></ion-col>
+        <ion-col><button ion-button block class="instagramButton" (click)="googleLogin()"> Google</button></ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="hrLine"><span>Ou</span></div>
+
+    <ion-list no-lines padding-top>
+      <!-- <ion-item>
+        <ion-input type="text" [(ngModel)]="signupData.firstName" placeholder="Prénoms"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="signupData.lastName" placeholder="Nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="signupData.birthDate" placeholder="Date de naissance"></ion-datetime>
+      </ion-item> -->
+      <ion-item>
+        <ion-input type="email" [(ngModel)]="signupData.email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="signupData.password" placeholder="Mot de passe"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="signupData.passwordRetyped" placeholder="Retapez le mot de passe"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block round color="secondary" (click)="signup()" [disabled]="!signupData.email || !signupData.password || !signupData.passwordRetyped">Signup</button>
+    <div padding>
+      <button ion-button block color="light" clear (click)="loginPage();">Avez-vous un compte? Connectez-vous</button>
+      <!-- <button ion-button block color="light" clear (click)="forgotPasswordPage();">Mot de passe oublié</button> -->
+   </div>
+
+</ion-content>
