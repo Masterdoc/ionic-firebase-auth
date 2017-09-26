@@ -4,11 +4,14 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 //import { UserLogin } from '../pages/user-login/user-login';
 //import { Dashboard } from '../pages/dashboard/dashboard';
 
-
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { UserProfileProvider } from '../providers/user-profile';
+import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -16,6 +19,8 @@ import firebase from 'firebase';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+
+  public username: string;
 
   // make HelloIonicPage the root (or first) page
   rootPage: any =  'UserLogin';
@@ -26,7 +31,9 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen, 
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    public profileProvider: UserProfileProvider,
+    private storage: Storage
   ) {
 
 
@@ -46,7 +53,14 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      //{ title: 'Dashbaord',icon:'home', component: 'Dashboard' },
+      { title: 'Tableau de bord',icon:'home', component: 'Dashboard' },
+      { title: 'Annonces',icon:'person', component: 'AnnoncesPage' },
+      { title: 'Mes annonces « envois »',icon:'person', component: 'EnvoieColisPage' },
+      { title: 'Home relais',icon:'person', component: 'HomeHopPage' },
+      { title: 'Mes annonces « ports »',icon:'person', component: 'ConvoisColisPage' },
+      { title: 'Colis expediés',icon:'person', component: 'ColisExpediesPage' },
+      { title: 'Colis livrés',icon:'person', component: 'ColisLivresPage' },
+      { title: 'Paramètres',icon:'person', component: 'Profile' },
       { title: 'Profile',icon:'person', component: 'Profile' }
     ];
   }
@@ -55,6 +69,18 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      //this.username = this.profileProvider.getUserNameStorage();
+
+      firebase.auth().onAuthStateChanged( user => {
+      if (user){
+        this.username = user.displayName;
+      }
+    })
+      
+
+      console.log('test');
+      console.log(this.username);
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
@@ -72,7 +98,7 @@ export class MyApp {
       if(!auth)
         this.rootPage = 'UserLogin';
       else
-        this.rootPage = 'Profile';
+        this.rootPage = 'Dashboard';
     });
   }
 

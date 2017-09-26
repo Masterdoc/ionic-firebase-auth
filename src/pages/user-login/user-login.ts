@@ -4,6 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { AuthProvider } from '../../providers/auth';
+import { Storage } from '@ionic/storage';
+import { UserProfileProvider } from '../../providers/user-profile';
 
 /*import { Dashboard } from '../dashboard/dashboard';
 import { UserSignup } from '../user-signup/user-signup';
@@ -21,6 +23,8 @@ export class UserLogin {
     password: ''
   }
   userProfile: any = null;
+  fbData: any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -28,12 +32,15 @@ export class UserLogin {
     private toastCtrl: ToastController,
     private facebook: Facebook, 
     private platform: Platform,
-    public authProvider: AuthProvider) {
+    public authProvider: AuthProvider,
+    private storage: Storage,
+    public profileProvider: UserProfileProvider) {
 
     firebase.auth().onAuthStateChanged( user => {
     if (user) {
       console.log(user);
       this.userProfile = user;
+
     } else {
       console.log("There's no user here");
     }
@@ -67,6 +74,9 @@ googleLogin(): void {
     // Login Code here
     this.afAuth.auth.signInWithEmailAndPassword(this.loginData.email, this.loginData.password)
     .then(auth => {
+      //set username
+      this.setUserName();
+
       let toast = this.toastCtrl.create({
         message: 'Vous êtes connectés',
         duration: 2000
@@ -97,6 +107,9 @@ googleLogin(): void {
           console.log("Firebase success: " + JSON.stringify(success));
           this.userProfile = success;
             // Handle error
+            //
+            this.setUserName();
+
             let toast = this.toastCtrl.create({
               message: "Connexion réussie",
               duration: 2000
@@ -108,7 +121,12 @@ googleLogin(): void {
     else {
       return this.afAuth.auth
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())
-        .then(res => console.log(res));
+        .then(res => {
+          //this.setUserNameStorage(res.displayName);
+          this.fbData = res.user;
+          this.setUserNameStorage(this.fbData.displayName);
+          console.log(this.fbData.displayName);
+        });
     }
   }
 
@@ -144,4 +162,31 @@ googleLogin(): void {
   signupPage(){ this.navCtrl.push('UserSignup'); }
   forgotPasswordPage(){ this.navCtrl.push('UserForgotpassword'); }
 
+  setUserName(){
+    this.profileProvider.getUserProfile().on('value', userProfileSnapshot => {
+      this.userProfile = userProfileSnapshot.val();
+      if (userProfileSnapshot.val()) {
+      this.setUserNameStorage(userProfileSnapshot.val().firstName);
+    }
+      
+    });
+    // set a key/value
+    
+  }
+
+  /*
+     * Save user credentials.
+     */
+    setUserNameStorage(username) {
+      this.storage.set('username', username);
+    }
+
+    setGetNameStorage(username) {
+      this.storage.get('usernae').then((val) => {
+        return val;
+        //console.log('Your age is', val);
+      });
+    }
+        // Or to get a key/value pair
+    
 }

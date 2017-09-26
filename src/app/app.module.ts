@@ -14,19 +14,27 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { Facebook } from '@ionic-native/facebook';
 import { UserProfileProvider } from '../providers/user-profile';
 import { AuthProvider } from '../providers/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Camera } from '@ionic-native/camera';
+import { IonicStorageModule } from '@ionic/storage';
+import { UserProvider } from '../providers/user/user';
+import { AnnonceProvider } from '../providers/annonce/annonce';
+
+import { NgCalendarModule  } from 'ionic2-calendar';
 
 // parametre de configuration fourni par firebase
 var config = {
-    apiKey: "AIzaSyD4PTMhxCu6bwXUd1EDuWuEgS5u-yFl9uQ",
-    authDomain: "authentification-9e381.firebaseapp.com",
-    databaseURL: "https://authentification-9e381.firebaseio.com",
-    projectId: "authentification-9e381",
-    storageBucket: "authentification-9e381.appspot.com",
-    messagingSenderId: "897770246707"
+    apiKey: "AIzaSyAYhObxFBKwTOvWRlGfDjySwxBtEfNX5AM",
+    authDomain: "hop-colis.firebaseapp.com",
+    databaseURL: "https://hop-colis.firebaseio.com",
+    projectId: "hop-colis",
+    storageBucket: "hop-colis.appspot.com",
+    messagingSenderId: "898177556572"
   };
 
 
@@ -45,7 +53,12 @@ var config = {
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    NgCalendarModule,
+    IonicStorageModule.forRoot({
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +76,10 @@ var config = {
     UserProfileProvider,
     AuthProvider,
     GooglePlus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider,
+    AnnonceProvider
   ]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the UserProfile provider.
@@ -14,14 +15,17 @@ import firebase from 'firebase';
 @Injectable()
 export class UserProfileProvider {
 
+  fbData: any;
+
   public userProfile:firebase.database.Reference;
   public currentUser:firebase.User;
 
-  constructor(public http: Http) {
+  constructor(public http: Http,
+    private storage: Storage) {
     firebase.auth().onAuthStateChanged( user => {
 	    if (user){
 	      this.currentUser = user;
-	      this.userProfile = firebase.database().ref(`/userProfile/${user.uid}`);
+	      this.userProfile = firebase.database().ref(`/user/${user.uid}`);
 	    }
 	  });
   }
@@ -74,5 +78,19 @@ export class UserProfileProvider {
 		    });
 		  });
 		}
+	/*
+     * Save user credentials.
+     */
+    setUserNameStorage(username) {
+      this.storage.set('username', username);
+    }
 
+    getUserNameStorage() {
+      this.storage.get('username').then(
+   			val=>{
+   				return val;
+   			}
+      	)
+    }
+        // Or to get a key/value pair
 }

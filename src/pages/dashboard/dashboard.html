@@ -1,37 +1,85 @@
 <ion-header>
-  <ion-navbar  hideBackButton="true">
+  <ion-navbar hideBackButton="true">
     <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
-    <ion-title text-center> Dashboard</ion-title>
+    <ion-title text-center></ion-title>
     <ion-buttons end>
-      <button ion-button icon-only><ion-icon name="search"></ion-icon></button>
+      <button ion-button icon-only><img class="logo" src="/assets/images/logo.png"></button>
     </ion-buttons>
 
   </ion-navbar>
 </ion-header>
-<ion-content >
 <ion-content>
-
-  <ion-slides autoplay="2000" loop="true" speed="900" >
-    <ion-slide>
-  	     <img src="assets/images/banners/banner1.jpg">
-    </ion-slide>
-    <ion-slide>
-          <img src="assets/images/banners/banner2.jpg">
-    </ion-slide>
-    <ion-slide>
-          <img src="assets/images/banners/banner3.jpg">
-    </ion-slide>
-  </ion-slides>
-
-
-  <ion-card >
-    <img src="assets/images/ads/ads1.jpg">
-  </ion-card>
-  <ion-card >
-    <img src="assets/images/ads/ads2.jpg">
-  </ion-card>
-  <ion-card >
-    <img src="assets/images/ads/ads3.jpg">
-  </ion-card>
+  <ion-grid>
+    <ion-row class="profile-info">
+      <ion-col col-5>
+        <img src="assets/images/template/user.png">
+      </ion-col>
+      <ion-col col-7>
+          <p><b>{{username}}</b></p>
+          <p><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon></p>
+          <p><b>15 avis</b></p>
+          <p>Disponible et aimable</p>
+          <p>Ancienneté 2 ans</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="action">
+      <ion-col col-4 text-center>
+        <a full color="secondary" (click)="ColisExpediesPage()">
+          <h2><ion-icon name="home"></ion-icon> Colis expédiés</h2>
+          <div class="loader-container expedies">
+            <h3>12</h3>
+            <div class="circle-loader-wrap cercle-bleu">
+              <div class="left-wrap">
+                <div class="loader"></div>
+              </div>
+              <div class="right-wrap">
+                <div class="loader"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ion-col>
+      <ion-col col-4 text-center>
+          <a full color="secondary" (click)="ColisHomePage()">
+          <h2><ion-icon name="home"></ion-icon> Colis home</h2>
+          <div class="loader-container home">
+            <h3>6</h3>
+            <div class="circle-loader-wrap cercle-orange">
+              <div class="left-wrap">
+                <div class="loader"></div>
+              </div>
+              <div class="right-wrap">
+                <div class="loader"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ion-col>
+      <ion-col col-4 text-center>
+          <a full color="secondary" (click)="ColisLivresPage()">
+          <h2><ion-icon name="home"></ion-icon> Colis livrés</h2>
+          <div class="loader-container livres">
+            <h3>9</h3>
+            <div class="circle-loader-wrap cercle-vert">
+              <div class="left-wrap">
+                <div class="loader"></div>
+              </div>
+              <div class="right-wrap">
+                <div class="loader"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-row class="homeButton">
+      <ion-col col-12>
+          <p><ion-icon name="home"></ion-icon> Que souhaitez-vous faire ?</p>
+          <button ion-button block outline color="primary" icon-left (click)="EnvoieColisPage()"><ion-icon name="home"></ion-icon>Envoyer un colis</button>
+          <button ion-button block color="primary" outline (click)="HomeHopPage()" icon-left><ion-icon name="home"></ion-icon>Être home colis</button>
+          <button ion-button block color="primary" outline (click)="ConvoieColisPage()" icon-left><ion-icon name="home"></ion-icon>Transporter un colis</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

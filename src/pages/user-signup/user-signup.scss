@@ -1,15 +1,66 @@
 .ios,.md,.wp{
   page-user-signup {
-    .toolbar-background{ background:transparent; border-style:none;}
-    .toolbar::after,.header-md::after{ background-image:none;}
-    ion-content{
-      background-color:color($colors,primary);
-       background-image:url('../assets/images/bg-pattern.png');
-       background-size:100% auto;
-    }
-    //.scroll-content { display: table; width: 100%; height: 100%; }
-    //.centerAlign { display: table-cell; vertical-align: middle; }
 
-    .item{border:$border-color 1px solid !important; margin-bottom:10px;}
+      .toolbar-background{ background:transparent; border-style:none;}
+      .toolbar::after,.header-md::after{ background-image:none;}
+      ion-content{
+
+        background: url(/assets/images/template/man.jpg) no-repeat;
+        background-size: cover;
+
+        .conteneur{
+          background-color: rgba(9, 236, 223, 0.65);
+         /*background-image:url('../assets/images/bg-pattern.png');
+         background-size:100% auto;*/
+        }
+        
+
+         h4 {
+            margin-top: 95px;
+            color: #fff;
+        }
+
+        img.logo {
+            display: block;
+            position: absolute;
+            right: 0;
+        }
+
+        .imageSeparateur img {
+            position: relative;
+            bottom: -30px;
+        }
+
+        ion-item.item.item-block.item-md.item-input.ng-valid.input-has-value.item-input-has-value.ng-touched.ng-dirty {
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        ion-grid.conteneur.grid {
+            padding-bottom: 0;
+        }
+
+        ion-grid.socialConnexion.grid {
+            background: #fff;
+            padding-top: 15px;
+
+            .facebookButton {
+                background-color: #3b5998;
+                color: #fff;
+                border-radius: 4px;
+            }
+
+            button{
+                text-transform: uppercase;
+            }
+        }
+
+      }
+
+
+      //.scroll-content { display: table; width: 100%; height: 100%; }
+      .centerAlign { display: table-cell; vertical-align: middle; border:#ff0000 1px solid; }
+
+      .item{border:$border-color 1px solid !important; margin-bottom:10px;}
   }
 }

@@ -1,0 +1,42 @@
+page-envoie-colis {
+    ion-content{
+        /*background-color: rgba(9, 236, 223, 0.45) !important;*/
+
+        ion-slide{
+          /*background-color: rgba(9, 236, 223, 0.45);*/
+          height: fit-content;
+
+          h2.title {
+            /* font-size: 29px; */
+            margin-top: 34px !important;
+          }
+        }
+
+        
+        ion-grid{
+              padding-bottom: 100px !important;
+        }
+
+    }
+
+    .submit{
+      position: fixed;
+      bottom: 0;
+      right: 38px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;    
+      z-index: 140;
+      background: $color7;
+    }
+    button.left{
+    left: 25px;
+  }
+  textarea.text-input.text-input-md {
+      border: solid 1px #ccc;
+      min-height: 80px;
+  }
+  textarea{
+    width: 100%;
+  }
+}

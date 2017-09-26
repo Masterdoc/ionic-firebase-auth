@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.authentification751936" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>authentification</name>
-    <description>An awesome Ionic/Cordova app.</description>
+<widget id="fr.hopcolis.com.hop_colis" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Hop !Colis</name>
+    <description>Hop !Colis</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -77,14 +77,21 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="browser" spec="~4.1.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
-    <plugin name="cordova-plugin-statusbar" spec="2.2.2" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-facebook4" spec="~1.9.1">
-        <variable name="APP_ID" value="152485825330050" />
-        <variable name="APP_NAME" value="authentification" />
+        <variable name="APP_ID" value="2001086476834006" />
+        <variable name="APP_NAME" value="hopcolis" />
     </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="~5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="" />
+        <variable name="898177556572-udo431f463aej7t66bmdhqg6ageac6gc.apps.googleusercontent.com" value="" />
+    </plugin>
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
+    <plugin name="cordova-plugin-statusbar" spec="2.2.2" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
+    <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
+    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
 </widget>

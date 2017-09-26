@@ -1,0 +1,145 @@
+
+<!--
+  Generated template for the EnvoieColisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Annonce colis</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><img class="logo" src="/assets/images/logo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-grid [hidden]="firstPage">
+      <p text-center=""><img class="" src="/assets/images/template/relaisColis.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+      <ion-list>
+
+        <ion-item>
+          <ion-label>De</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="formData.provenance"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>À</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.destination"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Heure de départ</ion-label>
+          <ion-datetime displayFormat="H:m" pickerFormat="H:m" [(ngModel)]="formData.heureDepart"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Heure d'arrivée</ion-label>
+          <ion-datetime displayFormat="H:m" pickerFormat="H:m" [(ngModel)]="formData.heureArrivee"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Option relais</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.relais" value="formData.relais"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Option detour</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.detour" value="formData.detour"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Si oui précisez le rayon max acceptable</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.rayon"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label>Catégorie d'objet</ion-label>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Document</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="document"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Objet moyen</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="objet moyen"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gros colis</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="gros colis"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Taille</ion-label>
+          <ion-select color="dark" ([ngModel])="formData.taille" value="objet moyen">
+            <ion-option value="petit" selected="true">Petit < 4kg</ion-option>
+            <ion-option value="moyen">Petit < 6kg</ion-option>
+          </ion-select>
+
+        </ion-item>
+
+      </ion-list>
+
+          <button ion-button="" full="" class="submit" color="secondary" (click)="goToPage2()"><ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-grid>
+
+    <ion-grid [hidden]="secondPage">
+
+      <p text-center=""><img class="" src="/assets/images/template/relaisColis2.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+      <h2 text-center="" class="title">
+        Information RIB
+      </h2>
+        <ion-grid text-left="">
+          <ion-row>
+            <ion-col text-center="">
+              Veuillez renseiger votre RIB
+              pour recevoir votre commission.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.nom"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Prénoms</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.prenoms"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>RIB</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.rib"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <button ion-button="" class="gb-vert" color="secondary" (click)="goToPage3()">Valider mon annonce</button>
+      <button ion-button="" class="gb-vert" color="secondary" (click)="goToPage3()">Enregistrer et publier après</button>
+
+      <button ion-button="" full="" class="submit left" color="secondary" (click)="goToPage1()"><ion-icon name="arrow-back"></ion-icon></button>
+
+    </ion-grid>
+  
+    <ion-grid [hidden]="lastPage">
+      <p text-center="">Votre annonce est enregistrée, vous pouvez la publier plutard</p>
+      <p text-center="">Merci pour votre confiance!<br><b>Nougbele Daniel</b></p>
+
+      <button ion-button="" small  class="gb-vert" (click)="submitForm()">OK</button>
+    </ion-grid>
+  
+</ion-content>

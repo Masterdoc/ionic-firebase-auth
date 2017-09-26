@@ -1,0 +1,232 @@
+<!--
+  Generated template for the EnvoieColisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Envoie de colis</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><img class="logo" src="/assets/images/logo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-grid [hidden]="firstPage">
+      <p text-center=""><img class="" src="/assets/images/template/stepEnvoie1.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Type d'objet</ion-label>
+          <ion-select [(ngModel)]="formData.objet">
+            <ion-option value="meuble" selected="true">Meuble</ion-option>
+            <ion-option value="mobilier">Mobilier</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-label padding>Descriptif de l'objet</ion-label>
+        <ion-textarea [(ngModel)]="formData.descriptif" row="5"></ion-textarea>
+
+        <ion-item>
+          <ion-label>De</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="formData.provenance"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>À</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.destination"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>À livrer avant le</ion-label>
+          <ion-datetime [(ngModel)]="formData.delaisLivraison"></ion-datetime>
+        </ion-item>
+
+      </ion-list>
+
+      <button ion-button="" full="" class="submit" color="primary" (click)="goToPage2()"><ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-grid>
+
+    <ion-grid [hidden]="secondPage">
+
+      <p text-center=""><img class="" src="/assets/images/template/stepEnvoie2.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+      <ion-row>
+        <ion-col col-6>
+              <button ion-button (click)="capture()">Choisir une photo </button>
+            <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+            <button ion-button (click)="upload()" *ngIf="captureDataUrl">Télécharger</button>
+        </ion-col>
+        <ion-col col-6>
+            <textarea placeholder="Description de la photo" ([ngModel])="formData.imageInfo"></textarea>
+        </ion-col>
+      </ion-row>
+      
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Catégorie d'objet</ion-label>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Document</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="document"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Objet moyen</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="objet moyen"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gros colis</ion-label>
+          <ion-checkbox color="dark" ([ngModel])="formData.categorie" value="gros colis"></ion-checkbox>
+        </ion-item>
+
+        <ion-item-divider>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>Assurance (1E)</ion-label>
+          <ion-checkbox ([ngModel])="formData.assurance" color="dark" value="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Option relais Hop !Colis (2E)</ion-label>
+          <ion-checkbox ([ngModel])="formData.relais" color="dark" value="true"></ion-checkbox>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button="" full="" class="submit left" color="secondary" (click)="goToPage1()"><ion-icon name="arrow-back"></ion-icon></button>
+          <button ion-button="" full="" class="submit" color="secondary" (click)="goToPage3()"><ion-icon name="arrow-forward"></ion-icon></button>
+
+      <p>* l’option relais vous offre la possibilité de faire livrer votre
+        colis chez l’un de nos agents home en cas d’empechement.
+        Vous avez Jusqu’à 15 jours pour retirer votre colis.</p>
+    </ion-grid>
+
+    <ion-grid [hidden]="thirdPage">
+
+      <p text-center=""><img class="" src="/assets/images/template/stepEnvoie3.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+
+      <ion-list>
+        
+        <ion-item>
+          <ion-label>Estimation du coup d'envoie</ion-label>
+          <ion-input type="number" value="6"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Proposer un tarif</ion-label>
+          <ion-input type="number" value="" [(ngModel)]="formData.estimation"></ion-input>
+        </ion-item>
+      <!--
+        <ion-item>
+          <ion-label>Publier plutard</ion-label>
+          <ion-radio ([ngModel])="formData.publie" color="dark" value="true"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Publiez maintenant</ion-label>
+          <ion-radio ([ngModel])="formData.publie" color="dark" value="false"></ion-radio>
+        </ion-item>
+        -->
+
+
+      </ion-list>
+      <button ion-button="" full="" class="submit left" color="secondary" (click)="goToPage2()"><ion-icon name="arrow-back"></ion-icon></button>
+          <button ion-button="" full="" class="submit" color="secondary" (click)="goToPage4()"><ion-icon name="arrow-forward"></ion-icon></button>
+
+    </ion-grid>
+
+
+    <ion-grid [hidden]="fourthPage">
+
+    <p text-center=""><img class="" src="/assets/images/template/stepEnvoie.png"></p>
+      <p text-center=""><img class="logo" src="/assets/images/logo.png"></p>
+
+      <b text-center="" class="title">
+        Récapitulatif des informations saisies
+      </b>
+      <ion-grid text-left="">
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Objet : 
+          </ion-col>
+          <ion-col col-6>
+            {{formData.objet}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            Option : 
+          </ion-col>
+          <ion-col col-6>
+            {{formData.categorie}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Description: 
+          </ion-col>
+          <ion-col col-6>
+            {{formData.descriptif}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Livraison le: 
+          </ion-col>
+          <ion-col col-6>
+            {{formData.delaisLivraison}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            Assurance : {{formData.assurance}}
+          </ion-col>
+          <ion-col col-6>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            Votre tarif proposé: 
+          </ion-col>
+          <ion-col col-6>
+             {{formData.propositionTarif}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-list>
+  
+       <!-- <ion-item>
+          <ion-label>Numéro de la carte</ion-label>
+          <ion-input type="text" [(ngModel)]="formData.numeroCarte"></ion-input>
+        </ion-item> -->
+
+      </ion-list>
+      <button ion-button="" class="gb-vert" color="secondary" (click)="submitForm()">Valider mon annonce</button>
+      <button ion-button="" class="gb-vert" color="secondary" (click)="goToPage5()">Enregistrer et publier après</button>
+
+      <button ion-button="" full="" class="submit left" color="secondary" (click)="goToPage3()"><ion-icon name="arrow-back"></ion-icon></button>
+
+    </ion-grid>
+  
+    <ion-grid [hidden]="lastPage">
+      <p text-center="">Votre annonce est enregistrée, vous pouvez la publier plutard</p>
+      <p text-center="">Merci pour votre confiance!<br><b>Nougbele Daniel</b></p>
+
+      <button ion-button="" small  class="gb-vert" (click)="submitForm()">OK</button>
+    </ion-grid>
+  
+</ion-content>

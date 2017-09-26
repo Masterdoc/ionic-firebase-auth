@@ -21,10 +21,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable()
 export class AuthProvider {
 
+
   constructor(public http: Http,
     public googlePlus: GooglePlus,
     //private facebook: Facebook, 
-    private afAuth: AngularFireAuth, ) {
+    private afAuth: AngularFireAuth) {
     console.log('Hello Auth Provider');
   }
 
@@ -37,7 +38,7 @@ export class AuthProvider {
 
 	googleLogin(): Promise<any> {
     return this.googlePlus.login({
-      'webClientId': '897770246707-dfnec7c5bdoh9pjd4gil29q8e0rpvsp2.apps.googleusercontent.com',
+      'webClientId': '898177556572-2v0u49mktgrualo413184u9leik5u956.apps.googleusercontent.com',
       'offline': true
     })
     .then( res => {
@@ -47,7 +48,7 @@ export class AuthProvider {
         .then( success => { console.log("Firebase success: " + JSON.stringify(success)); })
         .catch( error => console.log("Firebase failure: " + JSON.stringify(error)));
       })
-    .catch(err => console.error("Error: ", err));
+    .catch(err => console.log("Error: ", err));
   }
 
 

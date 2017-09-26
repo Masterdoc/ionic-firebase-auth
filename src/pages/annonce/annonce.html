@@ -1,0 +1,83 @@
+<!--
+  Generated template for the AnnoncePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>{{annonce.objet}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><img class="logo" src="/assets/images/logo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+          <ion-col col-6>
+            <div text-center>
+		   		<img src="/assets/images/template/home.png">
+		   </div>
+          </ion-col>
+          <ion-col col-6>
+		      <button ion-button outline item-end>Faire une offre</button>
+          </ion-col>
+        </ion-row>
+   
+   
+   	<ion-row>
+          <ion-col col-6 text-left="">
+            Objet : 
+          </ion-col>
+          <ion-col col-6>
+            {{annonce.objet}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Description: 
+          </ion-col>
+          <ion-col col-6>
+            {{annonce.descriptif}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col col-6 text-left="">
+            Provenance : 
+          </ion-col>
+          <ion-col col-6>
+            {{annonce.provenance}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Destination: 
+          </ion-col>
+          <ion-col col-6>
+            {{annonce.destination}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left="">
+            Livraison le: 
+          </ion-col>
+          <ion-col col-6>
+            {{annonce.delaisLivraison}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            Tarif proposé: 
+          </ion-col>
+          <ion-col col-6>
+             {{annonce.propositionTarif}}
+          </ion-col>
+        </ion-row>
+   </ion-grid>
+</ion-content>

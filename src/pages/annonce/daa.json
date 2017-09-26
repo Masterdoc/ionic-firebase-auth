@@ -1,0 +1,140 @@
+{
+	"hop-colis" : {
+		"users" : {
+			"user1" : {
+				"nomUtilisateur" : "",
+				"nom" : "",
+				"prenoms" : "",
+				"email" : "",
+				"contact" : "",
+				"adresse" : "",
+			},
+			"user2" : {
+				"nomUtilisateur" : "",
+				"nom" : "",
+				"prenoms" : "",
+				"email" : "",
+				"contact" : "",
+				"adresse" : "",
+			},
+		},
+		"annonce" : {
+			"annonce1" : {
+				"auteur" : "",
+				"objet": "",
+			    "descriptif": "",
+			    "provenance": "",
+			    "destination": "",
+			    "photo": "",
+			    "categorie": "",
+			    "publie": "",
+			},
+			"annonce2" : {
+				"auteur" : "",
+				"objet": "",
+			    "descriptif": "",
+			    "provenance": "",
+			    "destination": "",
+			    "photo": "",
+			    "categorie": "",
+			    "publie": "",
+			},
+		},
+		"operation" : {
+			"user1" : {
+				"annonce1" : {
+					"emetteur" : "",
+					"recepteur" : "",
+					"destinataire" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "delaisLivraison": "",
+				    "photo": "",
+				    "categorie": "",
+				    "assurance": "",
+				    "relais": "",
+				    "estimation": "",
+				    "propositionTarif": "",
+				    "publie": "",
+				    "expiration": "",
+				    "numeroCarte": ""
+				},
+				"annonce2" : {
+					"emetteur" : "",
+					"recepteur" : "",
+					"destinataire" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "delaisLivraison": "",
+				    "photo": "",
+				    "categorie": "",
+				    "assurance": "",
+				    "relais": "",
+				    "estimation": "",
+				    "propositionTarif": "",
+				    "publie": "",
+				    "expiration": "",
+				    "numeroCarte": ""
+				},
+			}
+		},
+		"port" : {
+			"annonce1" : {
+				"port1" : {
+					"auteur" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "photo": "",
+				    "categorie": "",
+				    "publie": "",
+				},
+				"port2" : {
+					"auteur" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "photo": "",
+				    "categorie": "",
+				    "publie": "",
+				}
+			},
+			"annonce2" : {
+				"port1" : {
+					"emetteur" : "",
+					"recepteur" : "",
+					"destinataire" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "delaisLivraison": "",
+				    "photo": "",
+				    "categorie": "",
+				    "relais": "",
+				    "propositionTarif": "",
+				},
+				"port2" : {
+					"emetteur" : "",
+					"recepteur" : "",
+					"destinataire" : "",
+					"objet": "",
+				    "descriptif": "",
+				    "provenance": "",
+				    "destination": "",
+				    "delaisLivraison": "",
+				    "photo": "",
+				    "categorie": "",
+				    "relais": "",
+				    "propositionTarif": "",
+				}
+			},
+		}
+	}
+}

@@ -1,6 +1,8 @@
 {
-  "name": "authentification",
+  "name": "hopcolis",
   "app_id": "ecbcd9b6",
-  "v2": true,
-  "typescript": true
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }

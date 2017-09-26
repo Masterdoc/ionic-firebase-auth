@@ -18,7 +18,7 @@ import { AuthProvider } from '../../providers/auth';
 export class Profile {
 
   public userProfile: any = null;
-  public birthDate: string;
+  public birthDate: string = null;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
   public profileProvider: UserProfileProvider, public authProvider: AuthProvider){}
@@ -30,7 +30,10 @@ export class Profile {
   ionViewDidEnter() {
 	  this.profileProvider.getUserProfile().on('value', userProfileSnapshot => {
 	    this.userProfile = userProfileSnapshot.val();
-	    this.birthDate = userProfileSnapshot.val().birthDate;
+	    if (userProfileSnapshot.val()) {
+			this.birthDate = userProfileSnapshot.val().birthDate;
+		}
+	    
 	  });
 	}
 
